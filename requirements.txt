@@ -1,30 +1,12 @@
-# Render 部署最終版本 - 完全避免版本衝突
-# 解決 Python 3.13 和套件依賴問題
-
-# 核心 Web 框架
+# Python 3.8 最穩定版本
 flask==2.2.5
 requests==2.28.2
 gunicorn==20.1.0
 python-dotenv==0.21.1
-
-# 基本工具
 schedule==1.2.0
-
-# Line Bot 功能 - 讓它自己決定 aiohttp 版本
 line-bot-sdk==2.4.2
-
-# Firebase 功能
 firebase-admin==5.4.0
-
-# 爬蟲功能 - 穩定版本
 beautifulsoup4==4.12.2
-lxml==4.9.3
-
-# 日期處理
+lxml==4.8.0
 python-dateutil==2.8.2
-
-# 修復 Python 3.13 相容性問題
-greenlet==2.0.2
-
-# 注意：不指定 aiohttp 版本，讓 line-bot-sdk 決定
-# line-bot-sdk 2.4.2 會自動安裝 aiohttp==3.8.4 
+greenlet==1.1.0

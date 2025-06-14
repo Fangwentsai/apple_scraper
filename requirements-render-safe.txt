@@ -1,0 +1,32 @@
+# Render 超級安全版本 - 避免所有編譯問題
+# 使用預編譯 wheel 和最穩定版本
+
+# 核心 Web 框架
+flask==2.2.5
+requests==2.28.2
+gunicorn==20.1.0
+python-dotenv==0.21.1
+
+# 基本工具
+schedule==1.2.0
+
+# Line Bot 功能 - 使用更舊但穩定的版本
+line-bot-sdk==2.3.0
+
+# Firebase 功能
+firebase-admin==5.4.0
+
+# 爬蟲功能 - 只使用純 Python 套件
+beautifulsoup4==4.12.2
+# lxml==4.9.3  # 暫時移除，避免編譯問題
+
+# 日期處理
+python-dateutil==2.8.2
+
+# 避免所有需要編譯的套件
+# greenlet==2.0.2  # 暫時移除
+# aiohttp 相關套件也暫時移除
+
+# 替代方案：使用純 Python 實作
+html5lib==1.1  # 替代 lxml
+urllib3==1.26.18  # 確保 requests 正常工作 
