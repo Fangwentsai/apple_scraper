@@ -112,6 +112,25 @@ class LineBotService:
         if len(title) > 40:
             title = title[:37] + "..."
         
+        # 檢查是否為通用類別頁面 URL
+        is_generic_url = any(generic in url for generic in [
+            '/shop/refurbished/ipad',
+            '/shop/refurbished/airpods', 
+            '/shop/refurbished/homepod',
+            '/shop/refurbished/accessories',
+            '/shop/refurbished/iphone',
+            '/shop/refurbished/appletv'
+        ])
+        
+        # 根據 URL 類型設定按鈕文字和動作
+        if is_generic_url:
+            button_text = f"瀏覽{category}整修品"
+            # 可以考慮改為搜尋動作而非直接連結
+            button_action = URIAction(label=button_text, uri=url)
+        else:
+            button_text = "查看產品詳情"
+            button_action = URIAction(label=button_text, uri=url)
+        
         bubble = BubbleContainer(
             hero=None,  # 可以加入產品圖片
             body=BoxComponent(
@@ -145,10 +164,7 @@ class LineBotService:
                     ButtonComponent(
                         style="primary",
                         color="#1DB446",
-                        action=URIAction(
-                            label="查看產品",
-                            uri=url
-                        )
+                        action=button_action
                     )
                 ]
             )
