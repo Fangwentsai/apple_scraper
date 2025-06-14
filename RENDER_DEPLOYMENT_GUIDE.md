@@ -46,6 +46,7 @@ PYTHON_VERSION=3.11.7
 
 **移除的套件：**
 - `playwright` - 在 Render 上資源消耗過大，改用 requests + BeautifulSoup
+- `aiohttp` 版本指定 - 讓 line-bot-sdk 2.4.2 自動決定使用 aiohttp==3.8.4
 
 ### 部署步驟
 
@@ -112,6 +113,9 @@ source venv_test/bin/activate
 
 # 安裝套件
 pip install -r requirements.txt
+
+# 測試套件相容性
+python test_dependencies.py
 
 # 測試啟動
 python app.py
