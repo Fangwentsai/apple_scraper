@@ -47,6 +47,10 @@ apple_scraper/
 ├── README.md                           # 專案說明文件
 ├── requirements.txt                    # Python 依賴套件
 ├── apple_scraper.py                    # 主要爬蟲程式
+├── apple_scraper_with_firebase.py      # 爬蟲 + Firebase 備份
+├── firebase_backup.py                  # Firebase 備份系統
+├── firebase_scheduler.py               # Firebase 定期備份
+├── firebase_setup_guide.md             # Firebase 設定指南
 ├── chatgpt_query.py                    # ChatGPT 查詢介面
 ├── linebot_service.py                  # Line Bot 服務
 ├── render_keepalive.py                 # Render 防休眠程式
@@ -68,13 +72,19 @@ apple_scraper/
 ### 1. 爬取 Apple 整修品資料
 
 ```bash
+# 基本爬蟲（僅本地儲存）
 python apple_scraper.py
+
+# 爬蟲 + Firebase 備份
+python apple_scraper_with_firebase.py
 ```
 
 這會：
 - 爬取所有類別的 Apple 整修品
 - 使用完整的 Headers 模擬真實瀏覽器
 - 將資料分別儲存到對應的 JSON 檔案
+- 自動備份到 Firebase（如已設定）
+- 追蹤價格變更記錄
 - 生成總結報告
 
 ### 2. ChatGPT 查詢介面
@@ -101,7 +111,23 @@ python linebot_service.py
 - 使用 Flex Message 美化產品展示
 - 提供互動式產品查詢
 
-### 4. Render 防休眠服務
+### 4. Firebase 備份系統
+
+```bash
+# 單次備份
+python firebase_backup.py
+
+# 定期備份排程
+python firebase_scheduler.py
+```
+
+功能：
+- 自動備份所有產品資料到 Firebase Firestore
+- 追蹤價格變更並記錄歷史
+- 支援定期自動備份（每天 9:00 和 21:00）
+- 提供備份統計和監控功能
+
+### 5. Render 防休眠服務
 
 ```bash
 python render_keepalive.py
