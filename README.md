@@ -53,6 +53,10 @@ apple_scraper/
 ├── firebase_setup_guide.md             # Firebase 設定指南
 ├── chatgpt_query.py                    # ChatGPT 查詢介面
 ├── linebot_service.py                  # Line Bot 服務
+├── price_tracker.py                    # 🆕 價格追蹤系統
+├── daily_price_scheduler.py            # 🆕 每日價格追蹤排程器
+├── price_analyzer.py                   # 🆕 價格分析工具
+├── create_sample_price_data.py         # 🆕 建立範例價格資料
 ├── render_keepalive.py                 # Render 防休眠程式
 ├── data/                               # 資料目錄
 │   ├── apple_refurbished_mac.json      # Mac 整修品資料
@@ -63,6 +67,8 @@ apple_scraper/
 │   ├── apple_refurbished_iphone.json   # iPhone 整修品資料
 │   ├── apple_refurbished_appletv.json  # Apple TV 整修品資料
 │   └── apple_refurbished_summary.json  # 總結資料
+├── price_history/                      # 🆕 價格歷史資料目錄
+│   └── price_tracking_YYYY-MM-DD.json  # 每日價格追蹤資料
 └── templates/                          # 模板目錄
     └── flex_templates.json             # Line Bot Flex Message 模板
 ```
@@ -110,6 +116,15 @@ python linebot_service.py
 - 支援 Quick Reply 快速選單
 - 使用 Flex Message 美化產品展示
 - 提供互動式產品查詢
+- **🆕 智能查價功能**：輸入「我要查價」開始互動式查詢
+- **🔔 通知系統**：可設定產品上架通知，自動推送符合條件的產品
+
+#### 智能查價流程
+1. 用戶輸入「我要查價」
+2. 選擇產品類別（Mac, iPad, iPhone, Apple TV, 配件）
+3. 選擇價格區間（20,000以內 / 50,000以內 / 50,000以上）
+4. 系統展示符合條件的產品（正方形輪播）
+5. 可設定通知，當有新產品符合需求時自動推送
 
 ### 4. Firebase 備份系統
 
@@ -127,7 +142,45 @@ python firebase_scheduler.py
 - 支援定期自動備份（每天 9:00 和 21:00）
 - 提供備份統計和監控功能
 
-### 5. Render 防休眠服務
+### 5. 🆕 價格追蹤系統
+
+```bash
+# 執行價格追蹤
+python price_tracker.py
+
+# 啟動每日價格追蹤排程器
+python daily_price_scheduler.py
+
+# 價格分析工具
+python price_analyzer.py
+
+# 建立範例價格資料（測試用）
+python create_sample_price_data.py
+```
+
+#### 價格追蹤功能：
+- **每日價格記錄**：自動記錄每件商品每天的價格
+- **價格變化偵測**：自動偵測降價、漲價和新產品
+- **降價通知**：自動發送 Line 通知給關注的用戶
+- **⚡ 價格波動通知**：偵測價格變化超過 10% 的產品，通知最近 3 天內查詢過該類別的用戶
+- **類別追蹤**：記錄用戶查詢的產品類別，提供精準的波動通知
+- **價格歷史分析**：提供價格趨勢分析和統計
+- **最佳優惠推薦**：找出降價最多的產品
+- **Firebase 備份**：價格資料自動備份到雲端
+
+#### 價格分析功能：
+- **趨勢分析**：分析產品價格上漲、下跌、穩定趨勢
+- **類別統計**：各產品類別的價格統計資訊
+- **最佳優惠**：找出降價最多的產品
+- **市場報告**：生成詳細的市場分析報告
+
+#### 自動排程：
+- **每天 09:00**：執行價格追蹤
+- **每天 21:00**：執行價格追蹤
+- **每天 22:00**：生成每日報告
+- **即時通知**：發現降價立即通知用戶
+
+### 6. Render 防休眠服務
 
 ```bash
 python render_keepalive.py

@@ -7,8 +7,16 @@ python-dotenv==0.21.1
 # 基本工具
 schedule==1.2.0
 
-# 如果需要 Line Bot (可選)
-# line-bot-sdk==2.4.2
+# Line Bot 功能
+line-bot-sdk==2.4.2
 
-# 如果需要 Firebase (可選)  
-# firebase-admin==5.4.0 
+# Firebase 功能
+firebase-admin==5.4.0
+
+# 爬蟲功能
+playwright==1.40.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# 日期處理
+python-dateutil==2.8.2 
