@@ -28,3 +28,6 @@ greenlet==2.0.2
 
 # 如果需要 aiohttp，使用穩定版本
 aiohttp==3.8.6
+
+# 避免使用 Playwright 在 Render 上（資源限制）
+# playwright==1.40.0  # 註解掉，改用 requests + BeautifulSoup 
