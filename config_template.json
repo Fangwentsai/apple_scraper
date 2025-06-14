@@ -1,0 +1,27 @@
+{
+  "line_bot": {
+    "channel_access_token": "YOUR_LINE_CHANNEL_ACCESS_TOKEN_HERE",
+    "channel_secret": "YOUR_LINE_CHANNEL_SECRET_HERE",
+    "webhook_url": "https://your-app.onrender.com/webhook"
+  },
+  "openai": {
+    "api_key": "YOUR_OPENAI_API_KEY_HERE",
+    "model": "gpt-3.5-turbo",
+    "max_tokens": 1000,
+    "temperature": 0.7
+  },
+  "firebase": {
+    "service_account_path": "firebase-service-account.json",
+    "project_id": "your-firebase-project-id"
+  },
+  "render": {
+    "app_url": "https://your-app.onrender.com",
+    "enable_scraping": true,
+    "scrape_interval_minutes": 5
+  },
+  "scraper": {
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "delay_between_requests": 3,
+    "max_retries": 3
+  }
+} 

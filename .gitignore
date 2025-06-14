@@ -69,3 +69,15 @@ test-results/
 .env
 .env.local
 .env.production
+
+# API Keys and Secrets
+chatgpt_api_key.txt
+openai_api_key.txt
+line_bot_config.json
+line_channel_access_token.txt
+line_channel_secret.txt
+
+# Configuration files with sensitive data
+config.json
+secrets.json
+credentials.json

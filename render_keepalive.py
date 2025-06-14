@@ -52,34 +52,41 @@ class RenderKeepAlive:
             return False
     
     def run_scraper(self):
-        """執行爬蟲程式"""
+        """執行爬蟲程式並備份到 Firebase"""
         if not self.enable_scraping:
             print("🔒 自動爬取已停用")
             return False
         
         try:
-            print("🕷️ 開始執行 Apple 整修品爬蟲...")
+            print("🕷️ 開始執行 Apple 整修品爬蟲 + Firebase 備份...")
             
-            # 執行爬蟲程式
+            # 執行整合的爬蟲+Firebase備份程式
             result = subprocess.run([
-                sys.executable, 'apple_scraper.py'
-            ], capture_output=True, text=True, timeout=600)  # 10 分鐘超時
+                sys.executable, 'apple_scraper_with_firebase.py'
+            ], capture_output=True, text=True, timeout=900)  # 15 分鐘超時（包含備份時間）
             
             if result.returncode == 0:
                 self.last_scrape_time = datetime.now()
                 self.scrape_count += 1
-                print(f"✅ 爬蟲執行成功 #{self.scrape_count} - {self.last_scrape_time.strftime('%Y-%m-%d %H:%M:%S')}")
-                print(f"📊 爬蟲輸出: {result.stdout[-200:]}")  # 顯示最後 200 字元
+                print(f"✅ 爬蟲+備份執行成功 #{self.scrape_count} - {self.last_scrape_time.strftime('%Y-%m-%d %H:%M:%S')}")
+                print(f"📊 執行輸出: {result.stdout[-300:]}")  # 顯示最後 300 字元
+                
+                # 檢查是否有 Firebase 備份成功的訊息
+                if "Firebase 備份完成" in result.stdout:
+                    print("☁️ Firebase 備份成功")
+                elif "Firebase 未設定" in result.stdout:
+                    print("⚠️ Firebase 未設定，僅完成本地儲存")
+                
                 return True
             else:
-                print(f"❌ 爬蟲執行失敗: {result.stderr}")
+                print(f"❌ 爬蟲+備份執行失敗: {result.stderr}")
                 return False
                 
         except subprocess.TimeoutExpired:
-            print("⏰ 爬蟲執行超時")
+            print("⏰ 爬蟲+備份執行超時")
             return False
         except Exception as e:
-            print(f"❌ 爬蟲執行錯誤: {e}")
+            print(f"❌ 爬蟲+備份執行錯誤: {e}")
             return False
     
     def should_scrape(self):
@@ -97,16 +104,16 @@ class RenderKeepAlive:
         """排程任務"""
         print("📅 設定排程任務...")
         
-        # 每 5 分鐘 ping 一次
-        schedule.every(5).minutes.do(self.ping_service)
-        
-        # 根據設定間隔執行爬蟲
+        # 每 5 分鐘執行爬蟲+備份
         if self.enable_scraping:
-            schedule.every(self.scrape_interval_hours).hours.do(self.run_scraper)
+            schedule.every(5).minutes.do(self.run_scraper)
+        else:
+            # 如果不啟用爬取，則每 5 分鐘 ping 一次防休眠
+            schedule.every(5).minutes.do(self.ping_service)
             
-            # 啟動時立即執行一次爬蟲（如果需要）
-            if self.should_scrape():
-                threading.Thread(target=self.run_scraper, daemon=True).start()
+        # 啟動時立即執行一次爬蟲（如果啟用爬取）
+        if self.enable_scraping:
+            threading.Thread(target=self.run_scraper, daemon=True).start()
         
         print("✅ 排程任務設定完成")
     
@@ -175,7 +182,7 @@ def home():
             
             <div class="status">
                 <h3>✅ 服務狀態：正常運行</h3>
-                <p>Render 防休眠服務正在運行中，每 5 分鐘自動 ping 一次防止休眠。</p>
+                <p>Render 防休眠服務正在運行中，每 5 分鐘自動執行爬蟲並備份到 Firebase。</p>
             </div>
             
             <h3>📊 服務資訊</h3>
