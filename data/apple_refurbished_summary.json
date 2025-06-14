@@ -1,0 +1,42 @@
+{
+  "抓取時間": "2025-06-14 13:12:45",
+  "類別統計": {
+    "Mac 整修品": {
+      "檔案名稱": "apple_refurbished_mac.json",
+      "產品數量": 84,
+      "說明": "包含 Mac mini、MacBook Air、MacBook Pro、iMac、Mac Studio 等"
+    },
+    "iPad 整修品": {
+      "檔案名稱": "apple_refurbished_ipad.json",
+      "產品數量": 8,
+      "說明": "包含 iPad、iPad Air、iPad Pro 等不同容量和顏色選擇"
+    },
+    "AirPods 整修品": {
+      "檔案名稱": "apple_refurbished_airpods.json",
+      "產品數量": 2,
+      "說明": "包含 AirPods 第 3 代和 AirPods Pro 2"
+    },
+    "iPhone 整修品": {
+      "檔案名稱": "apple_refurbished_iphone.json",
+      "產品數量": 0,
+      "說明": "目前沒有 iPhone 整修品"
+    },
+    "HomePod 整修品": {
+      "檔案名稱": "apple_refurbished_homepod.json",
+      "產品數量": 2,
+      "說明": "包含 HomePod (第 2 代) 午夜色和白色"
+    },
+    "Apple TV 整修品": {
+      "檔案名稱": "apple_refurbished_appletv.json",
+      "產品數量": 0,
+      "說明": "目前沒有 Apple TV 整修品"
+    },
+    "配件整修品": {
+      "檔案名稱": "apple_refurbished_accessories.json",
+      "產品數量": 4,
+      "說明": "包含 AirPods、HomePod 等配件整修品"
+    }
+  },
+  "總產品數量": 100,
+  "說明": "所有 Apple 整修品資料已分類儲存到對應的 JSON 檔案中，可供 ChatGPT 查詢使用"
+}

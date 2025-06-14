@@ -1,0 +1,266 @@
+{
+  "product_bubble": {
+    "type": "bubble",
+    "hero": {
+      "type": "image",
+      "url": "https://www.apple.com/v/refurbished/a/images/overview/hero_refurbished__fkqq5g6m2gia_large.jpg",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "CATEGORY",
+          "size": "sm",
+          "color": "#999999",
+          "weight": "bold"
+        },
+        {
+          "type": "text",
+          "text": "PRODUCT_TITLE",
+          "size": "md",
+          "weight": "bold",
+          "wrap": true,
+          "margin": "sm"
+        },
+        {
+          "type": "text",
+          "text": "PRODUCT_PRICE",
+          "size": "xl",
+          "weight": "bold",
+          "color": "#FF5551",
+          "margin": "md"
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "button",
+          "style": "primary",
+          "color": "#1DB446",
+          "action": {
+            "type": "uri",
+            "label": "查看產品",
+            "uri": "PRODUCT_URL"
+          }
+        }
+      ]
+    }
+  },
+  "summary_bubble": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "🍎 Apple 整修品總覽",
+          "size": "xl",
+          "weight": "bold",
+          "color": "#1DB446"
+        },
+        {
+          "type": "text",
+          "text": "總產品數：TOTAL_PRODUCTS 個",
+          "size": "md",
+          "margin": "md"
+        },
+        {
+          "type": "separator",
+          "margin": "md"
+        },
+        {
+          "type": "text",
+          "text": "各類別產品數：",
+          "size": "sm",
+          "color": "#666666",
+          "margin": "md"
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "button",
+          "style": "secondary",
+          "action": {
+            "type": "message",
+            "label": "開始查詢",
+            "text": "我想查詢產品"
+          }
+        }
+      ]
+    }
+  },
+  "category_carousel": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mac-card-40-macbook-air-202110?wid=600&hei=500&fmt=p-jpg&qlt=95&.v=1633726243000",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Mac 整修品",
+              "size": "lg",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "MacBook Air、MacBook Pro、iMac、Mac mini 等",
+              "size": "sm",
+              "color": "#666666",
+              "wrap": true
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "button",
+              "style": "primary",
+              "action": {
+                "type": "message",
+                "label": "查看 Mac",
+                "text": "查詢Mac整修品"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-card-40-ipad-202210?wid=600&hei=500&fmt=p-jpg&qlt=95&.v=1664912135000",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "iPad 整修品",
+              "size": "lg",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "iPad Pro、iPad Air、iPad 等各種型號",
+              "size": "sm",
+              "color": "#666666",
+              "wrap": true
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "button",
+              "style": "primary",
+              "action": {
+                "type": "message",
+                "label": "查看 iPad",
+                "text": "查詢iPad整修品"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "quick_reply_categories": {
+    "items": [
+      {
+        "type": "action",
+        "action": {
+          "type": "message",
+          "label": "Mac",
+          "text": "查詢Mac整修品"
+        }
+      },
+      {
+        "type": "action",
+        "action": {
+          "type": "message",
+          "label": "iPad",
+          "text": "查詢iPad整修品"
+        }
+      },
+      {
+        "type": "action",
+        "action": {
+          "type": "message",
+          "label": "AirPods",
+          "text": "查詢AirPods整修品"
+        }
+      },
+      {
+        "type": "action",
+        "action": {
+          "type": "message",
+          "label": "HomePod",
+          "text": "查詢HomePod整修品"
+        }
+      },
+      {
+        "type": "action",
+        "action": {
+          "type": "message",
+          "label": "配件",
+          "text": "查詢配件整修品"
+        }
+      },
+      {
+        "type": "action",
+        "action": {
+          "type": "message",
+          "label": "最便宜",
+          "text": "最便宜的產品"
+        }
+      },
+      {
+        "type": "action",
+        "action": {
+          "type": "message",
+          "label": "最昂貴",
+          "text": "最昂貴的產品"
+        }
+      },
+      {
+        "type": "action",
+        "action": {
+          "type": "message",
+          "label": "總覽",
+          "text": "顯示產品總覽"
+        }
+      }
+    ]
+  }
+} 
