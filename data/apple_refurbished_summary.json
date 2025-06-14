@@ -1,42 +1,39 @@
 {
-  "抓取時間": "2025-06-14 13:12:45",
-  "類別統計": {
-    "Mac 整修品": {
-      "檔案名稱": "apple_refurbished_mac.json",
+  "更新時間": "2024-12-19",
+  "總產品數量": 100,
+  "各類別統計": {
+    "Mac": {
       "產品數量": 84,
-      "說明": "包含 Mac mini、MacBook Air、MacBook Pro、iMac、Mac Studio 等"
+      "檔案路徑": "data/apple_refurbished_mac.json"
     },
-    "iPad 整修品": {
-      "檔案名稱": "apple_refurbished_ipad.json",
+    "iPad": {
       "產品數量": 8,
-      "說明": "包含 iPad、iPad Air、iPad Pro 等不同容量和顏色選擇"
+      "檔案路徑": "data/apple_refurbished_ipad.json"
     },
-    "AirPods 整修品": {
-      "檔案名稱": "apple_refurbished_airpods.json",
-      "產品數量": 2,
-      "說明": "包含 AirPods 第 3 代和 AirPods Pro 2"
-    },
-    "iPhone 整修品": {
-      "檔案名稱": "apple_refurbished_iphone.json",
+    "iPhone": {
       "產品數量": 0,
-      "說明": "目前沒有 iPhone 整修品"
+      "檔案路徑": "data/apple_refurbished_iphone.json"
     },
-    "HomePod 整修品": {
-      "檔案名稱": "apple_refurbished_homepod.json",
+    "AirPods": {
       "產品數量": 2,
-      "說明": "包含 HomePod (第 2 代) 午夜色和白色"
+      "檔案路徑": "data/apple_refurbished_airpods.json"
     },
-    "Apple TV 整修品": {
-      "檔案名稱": "apple_refurbished_appletv.json",
+    "HomePod": {
+      "產品數量": 2,
+      "檔案路徑": "data/apple_refurbished_homepod.json"
+    },
+    "Apple TV": {
       "產品數量": 0,
-      "說明": "目前沒有 Apple TV 整修品"
+      "檔案路徑": "data/apple_refurbished_appletv.json"
     },
-    "配件整修品": {
-      "檔案名稱": "apple_refurbished_accessories.json",
+    "配件": {
       "產品數量": 4,
-      "說明": "包含 AirPods、HomePod 等配件整修品"
+      "檔案路徑": "data/apple_refurbished_accessories.json"
     }
   },
-  "總產品數量": 100,
-  "說明": "所有 Apple 整修品資料已分類儲存到對應的 JSON 檔案中，可供 ChatGPT 查詢使用"
+  "價格範圍": {
+    "最低價格": "NT$4,690",
+    "最高價格": "NT$89,900",
+    "平均價格範圍": "NT$4,690 - NT$89,900"
+  }
 }
