@@ -29,7 +29,7 @@ def create_env_file():
     print("🤖 Line Bot 設定:")
     env_vars['LINE_CHANNEL_ACCESS_TOKEN'] = input("  Line Bot Channel Access Token: ").strip()
     env_vars['LINE_CHANNEL_SECRET'] = input("  Line Bot Channel Secret: ").strip()
-    env_vars['LINE_WEBHOOK_URL'] = input("  Webhook URL (例如: https://your-app.onrender.com/webhook): ").strip()
+    env_vars['LINE_WEBHOOK_URL'] = input("  Webhook URL (例如: https://apple-scraper-1ntk.onrender.com/webhook): ").strip()
     
     # OpenAI 設定
     print("\n🧠 OpenAI/ChatGPT 設定:")
@@ -45,7 +45,7 @@ def create_env_file():
     
     # Render 設定
     print("\n🚀 Render 部署設定:")
-    app_url = input("  Render App URL (例如: https://your-app.onrender.com): ").strip()
+    app_url = input("  Render App URL (例如: https://apple-scraper-1ntk.onrender.com): ").strip()
     env_vars['RENDER_APP_URL'] = app_url if app_url else 'http://localhost:5000'
     
     enable_scraping = input("  啟用自動爬取？(Y/n): ").strip().lower()
@@ -134,7 +134,7 @@ def show_example():
     example_content = """# Line Bot 設定
 LINE_CHANNEL_ACCESS_TOKEN=你的Line Bot Token
 LINE_CHANNEL_SECRET=你的Line Bot Secret
-LINE_WEBHOOK_URL=https://your-app.onrender.com/webhook
+LINE_WEBHOOK_URL=https://apple-scraper-1ntk.onrender.com/webhook
 
 # OpenAI 設定
 OPENAI_API_KEY=sk-proj-你的OpenAI API Key
@@ -145,7 +145,7 @@ GOOGLE_APPLICATION_CREDENTIALS=firebase-service-account.json
 FIREBASE_PROJECT_ID=your-firebase-project-id
 
 # Render 設定
-RENDER_APP_URL=https://your-app.onrender.com
+RENDER_APP_URL=https://apple-scraper-1ntk.onrender.com
 ENABLE_SCRAPING=true
 SCRAPE_INTERVAL_MINUTES=5"""
     

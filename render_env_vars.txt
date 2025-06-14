@@ -1,0 +1,44 @@
+# =============================================================================
+# Render 環境變數設定清單
+# 複製以下內容到 Render 的 Environment Variables 頁面
+# =============================================================================
+
+# 基本設定
+TZ=Asia/Taipei
+LOG_LEVEL=INFO
+ENABLE_SCRAPING=true
+SCRAPE_INTERVAL_MINUTES=5
+
+# Render 應用設定
+RENDER_APP_URL=https://apple-scraper-1ntk.onrender.com
+
+# Line Bot 設定 (必填)
+LINE_CHANNEL_ACCESS_TOKEN=你的Line Bot Channel Access Token
+LINE_CHANNEL_SECRET=你的Line Bot Channel Secret
+LINE_WEBHOOK_URL=https://apple-scraper-1ntk.onrender.com/webhook
+
+# OpenAI 設定 (必填)
+OPENAI_API_KEY=你的OpenAI API Key
+OPENAI_MODEL=gpt-3.5-turbo
+OPENAI_MAX_TOKENS=1000
+OPENAI_TEMPERATURE=0.7
+
+# Firebase 設定 (必填)
+FIREBASE_PROJECT_ID=你的Firebase專案ID
+GOOGLE_APPLICATION_CREDENTIALS=firebase-service-account.json
+
+# 爬蟲進階設定 (可選)
+USER_AGENT=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+DELAY_BETWEEN_REQUESTS=3
+MAX_RETRIES=3
+VERBOSE_LOGGING=false
+
+# =============================================================================
+# 設定步驟:
+# 1. 登入 Render 控制台
+# 2. 進入你的服務: apple-scraper-1ntk
+# 3. 點擊 "Environment" 標籤
+# 4. 逐一新增上述環境變數
+# 5. 點擊 "Save Changes"
+# 6. 重新部署服務
+# ============================================================================= 

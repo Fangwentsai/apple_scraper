@@ -10,7 +10,7 @@
 # 前往 https://developers.line.biz/ 取得
 LINE_CHANNEL_ACCESS_TOKEN=你的Line Bot Channel Access Token
 LINE_CHANNEL_SECRET=你的Line Bot Channel Secret
-LINE_WEBHOOK_URL=https://your-app.onrender.com/webhook
+LINE_WEBHOOK_URL=https://apple-scraper-1ntk.onrender.com/webhook
 
 # =============================================================================
 # OpenAI/ChatGPT 設定 (必填 - 如需使用 ChatGPT 功能)
@@ -31,7 +31,7 @@ FIREBASE_PROJECT_ID=你的Firebase專案ID
 # =============================================================================
 # Render 部署設定 (部署時必填)
 # =============================================================================
-RENDER_APP_URL=https://your-app.onrender.com
+RENDER_APP_URL=https://apple-scraper-1ntk.onrender.com
 ENABLE_SCRAPING=true
 SCRAPE_INTERVAL_MINUTES=5
 

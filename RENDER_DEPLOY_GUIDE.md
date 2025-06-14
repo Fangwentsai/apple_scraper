@@ -28,7 +28,7 @@ gunicorn --bind 0.0.0.0:$PORT start_render:app
 # Line Bot 設定
 LINE_CHANNEL_ACCESS_TOKEN=你的Line Bot Token
 LINE_CHANNEL_SECRET=你的Line Bot Secret
-LINE_WEBHOOK_URL=https://your-app.onrender.com/webhook
+LINE_WEBHOOK_URL=https://apple-scraper-1ntk.onrender.com/webhook
 
 # OpenAI 設定
 OPENAI_API_KEY=你的OpenAI API Key
@@ -39,7 +39,7 @@ FIREBASE_PROJECT_ID=你的Firebase專案ID
 GOOGLE_APPLICATION_CREDENTIALS=firebase-service-account.json
 
 # Render 設定
-RENDER_APP_URL=https://your-app.onrender.com
+RENDER_APP_URL=https://apple-scraper-1ntk.onrender.com
 ENABLE_SCRAPING=true
 SCRAPE_INTERVAL_MINUTES=5
 
@@ -92,8 +92,8 @@ git push
 
 ### 3. 部署後檢查
 - 檢查部署日誌是否有錯誤
-- 訪問 `https://your-app.onrender.com` 確認服務運行
-- 訪問 `https://your-app.onrender.com/health` 檢查健康狀態
+- 訪問 `https://apple-scraper-1ntk.onrender.com` 確認服務運行
+- 訪問 `https://apple-scraper-1ntk.onrender.com/health` 檢查健康狀態
 
 ## 🐛 常見問題
 
@@ -115,7 +115,7 @@ python start_render.py
 1. 部署成功後，複製 Render 提供的 URL
 2. 在 Line Developers Console 設定 Webhook URL：
    ```
-   https://your-app.onrender.com/webhook
+   https://apple-scraper-1ntk.onrender.com/webhook
    ```
 
 ### 4. 服務休眠問題
