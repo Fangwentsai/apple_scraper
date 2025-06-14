@@ -22,16 +22,30 @@ def start_linebot_service():
         return linebot_app
     except Exception as e:
         print(f"❌ Line Bot 服務啟動失敗: {e}")
+        print("🔄 使用備用 Flask 應用")
         # 建立基本的 Flask 應用作為備用
         app = Flask(__name__)
         
         @app.route('/')
         def home():
-            return "Apple 整修品爬蟲系統運行中"
+            return {
+                "status": "running",
+                "service": "Apple 整修品爬蟲系統",
+                "message": "系統運行中，Line Bot 服務暫時不可用"
+            }
         
         @app.route('/health')
         def health():
-            return {"status": "ok", "service": "apple_scraper"}
+            return {
+                "status": "ok", 
+                "service": "apple_scraper",
+                "linebot": "disabled",
+                "scraper": "enabled"
+            }
+        
+        @app.route('/webhook', methods=['POST'])
+        def webhook():
+            return {"error": "Line Bot service not available"}, 503
         
         return app
 
