@@ -8,6 +8,10 @@ Apple 整修品 Line Bot 服務
 import os
 import json
 from flask import Flask, request, abort
+from dotenv import load_dotenv
+
+# 載入 .env 檔案
+load_dotenv()
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import (
@@ -30,12 +34,21 @@ app = Flask(__name__)
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv('LINE_CHANNEL_ACCESS_TOKEN')
 LINE_CHANNEL_SECRET = os.getenv('LINE_CHANNEL_SECRET')
 
-if not LINE_CHANNEL_ACCESS_TOKEN or not LINE_CHANNEL_SECRET:
-    print("❌ 請設定 LINE_CHANNEL_ACCESS_TOKEN 和 LINE_CHANNEL_SECRET 環境變數")
-    exit(1)
+# 初始化 Line Bot API（允許在沒有環境變數時繼續運行）
+line_bot_api = None
+handler = None
 
-line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(LINE_CHANNEL_SECRET)
+if LINE_CHANNEL_ACCESS_TOKEN and LINE_CHANNEL_SECRET:
+    try:
+        line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
+        handler = WebhookHandler(LINE_CHANNEL_SECRET)
+        print("✅ Line Bot API 初始化成功")
+    except Exception as e:
+        print(f"❌ Line Bot API 初始化失敗: {e}")
+        line_bot_api = None
+        handler = None
+else:
+    print("⚠️  Line Bot 環境變數未設定，將使用測試模式")
 
 # 初始化 Firebase
 try:
